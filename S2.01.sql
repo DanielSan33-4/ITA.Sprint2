@@ -1,6 +1,5 @@
-USE transactions;
-
 -- Nivell 1
+USE transactions;
 # Exercici 2
 # Llistat dels països que estan generant vendes.
 SELECT DISTINCT(company.country)
@@ -19,7 +18,7 @@ SELECT company.company_name, AVG(transaction.amount) AS media
 FROM transaction
 JOIN company ON transaction.company_id = company.id
 GROUP BY company.id
-ORDER BY media
+ORDER BY media DESC
 LIMIT 1;
 
 # Exercici 3
@@ -229,11 +228,6 @@ ADD CONSTRAINT fk_transactions_users
 FOREIGN KEY (user_id) REFERENCES users(id);
 
 # Exercici 9
-SELECT COUNT(DISTINCT id), user_id
-FROM transactions
-GROUP BY user_id
-HAVING COUNT(DISTINCT id) > 80;
-
 SELECT *
 FROM users
 WHERE id IN (	SELECT user_id
