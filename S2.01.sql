@@ -311,7 +311,8 @@ WHERE tt_ultimes <= 3
 GROUP BY card_id;
 
 SELECT COUNT(*)
-FROM targetes_actives;
+FROM targetes_actives
+WHERE estat = 'activa';
 
 # Exercici 2
 CREATE TABLE IF NOT EXISTS product_transfer(
